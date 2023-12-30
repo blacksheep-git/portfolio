@@ -3,31 +3,30 @@ import React from "react";
 import Image from "next/image";
 import {TypeAnimation} from "react-type-animation";
 
+
 const HeroSection = () => {
     return (
         <section>
             <div className="grid grid-cols-1 sm:grid-cols-12">
                 <div className="col-span-7 place-self-center text-center sm:text-left">
                     <h1 className="text-white mb-4 text-4xl sm:text-4xl lg:text-6xl font-extrabold">
-                        Hello, I`{"'"}`m
                         <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-300 to-purple-600">
-                              {" "}
-                            <br/>
-                            <TypeAnimation
-                                sequence={[
-                                    'Mateo Ortegon',
-                                    1000,
-                                    'Teo',
-                                    2000
-                                ]}
-                                wrapper="span"
-                                speed={40}
-                                repeat={0}
-                                cursor={false}
-                                deletionSpeed={40}
-                                preRenderFirstString={true}
-                            />
+                            Hello, I{"'"}m
                         </span>
+                        <br/>
+                        <TypeAnimation
+                            sequence={[
+                                'Mateo Ortegon',
+                                1500,
+                                'Teo.',
+                                2000
+                            ]}
+                            wrapper="span"
+                            speed={40}
+                            repeat={0}
+                            deletionSpeed={40}
+                            cursor={false}
+                        />
                     </h1>
                     <p className="text-[#ADB7BE] text-lg mb-6 lg:text-xl">
                         I am a Software Engineer with 2 years of professional experience working on critical large-scale
@@ -36,7 +35,7 @@ const HeroSection = () => {
                         <br/><br/>
                         Before I started my Computer Science degree, I was a freelancer offering services to eCommerce
                         stores, from front-end code development to platform migrations and digital ads – and at one
-                        point co-founded an online brand that reached `{">"}`50k active community members before we sold it in
+                        point co-founded an online brand that reached {">50k"} active community members before we sold it in
                         2020.
                         <br/><br/>
                         Outside of code, I like to mountain bike (competed at a national level for some time),
