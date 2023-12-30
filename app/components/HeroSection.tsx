@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import {TypeAnimation} from "react-type-animation";
 
-
 const HeroSection = () => {
     return (
         <section>
@@ -27,6 +26,7 @@ const HeroSection = () => {
                             deletionSpeed={40}
                             cursor={false}
                         />
+
                     </h1>
                     <p className="text-[#ADB7BE] text-lg mb-6 lg:text-xl">
                         I am a Software Engineer with 2 years of professional experience working on critical large-scale
