@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@aws-amplify/adapter-nextjs": "^1.0.9",
+    "@heroicons/react": "^2.1.1",
     "aws-amplify": "^6.0.9",
     "next": "14.0.4",
     "react": "^18",
