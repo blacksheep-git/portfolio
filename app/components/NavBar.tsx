@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import NavLink from "@/app/components/NavLink";
 import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/solid";
-import MenuOverlay from "@/app/components/MenuOverlay";
+import MenuOverlay, {LinkDetails} from "@/app/components/MenuOverlay";
 
-const navLinks = [{
+
+
+const navLinks : LinkDetails[] = [{
     href: '#about',
     title: 'About'
     },{
