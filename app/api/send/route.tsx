@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
 
     try {
         if (fromEmail === undefined) {
-            new Error('FROM_EMAIL is not defined');
+            throw new Error('FROM_EMAIL is not defined');
         }
 
         const data = await resend.emails.send({
