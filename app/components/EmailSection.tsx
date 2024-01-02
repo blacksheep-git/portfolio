@@ -1,5 +1,5 @@
 "use client";
-import React, { useState} from "react";
+import React, { useState , FormEvent} from "react";
 import GitHubIcon from "@/public/icons/github.svg";
 import XIcon from "@/public/icons/x.svg";
 import LinkedInIcon from "@/public/icons/linkedin.svg";
@@ -8,13 +8,13 @@ import Image from "next/image";
 
 const EmailSection = () => {
     const [emailSubmitted, setEmailSubmitted] = useState(false);
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        const data = {
-                email: e.target.email.value,
-                subject: e.target.subject.value,
-                message: e.target.message.value,
-            };
+        const formData = new FormData(e.currentTarget as HTMLFormElement);
+        const email = formData.get('email') as string;
+        const subject = formData.get('subject') as string;
+        const message = formData.get('message') as string;
+        const data = { email, subject, message };
         const JSONdata = JSON.stringify(data);
         const endpoint = "api/send";
         const options = {
@@ -24,15 +24,15 @@ const EmailSection = () => {
             },
             body: JSONdata,
         };
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
-    console.log(resData);
+        const response = await fetch(endpoint, options);
+        const resData = await response.json();
+        console.log(resData);
 
-    if(response.status === 200) {
-        setEmailSubmitted(true);
-    } else {
-        console.log("Message failed to send.")
-    }
+        if(response.status === 200) {
+            setEmailSubmitted(true);
+        } else {
+            console.log("Message failed to send.")
+        }
     };
 
 

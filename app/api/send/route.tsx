@@ -11,6 +11,10 @@ export async function POST(req: NextRequest) {
     const { email, subject, message } = await req.json();
 
     try {
+        if (fromEmail === undefined) {
+            new Error('FROM_EMAIL is not defined');
+        }
+
         const data = await resend.emails.send({
             from: fromEmail,
             to: [fromEmail, email],
