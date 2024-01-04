@@ -19,7 +19,10 @@ export async function POST(req: NextRequest) {
             from: fromEmail,
             to: [fromEmail, email],
             subject: subject,
-            react: EmailTemplate({subject: subject, message: message }) as React.ReactElement,
+            react: EmailTemplate({
+                subject: subject,
+                message: message
+            }) as React.ReactElement,
         });
 
         return NextResponse.json(data);

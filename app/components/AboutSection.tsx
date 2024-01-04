@@ -89,12 +89,12 @@ const AboutSection = () => {
                 </div>
                 <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
                     <h2 className="test-4xl font-bold text-white mb-4">About Me</h2>
-                    <p className="text-base md:text-lg">
-                        I am a Software Engineer with 2 years of professional experience working on critical large-scale
-                        software. Currently, I work on a back-end payments routing and data transformation
-                        application that processes hundreds of transactions per second, totaling ~$4T USD globally per day.
-                    </p>
-                    <div className="flex flex-row mt-8">
+                    {/*<p className="text-base md:text-lg">*/}
+                    {/*    I am a Software Engineer with 2 years of professional experience working on critical large-scale*/}
+                    {/*    software. Currently, I work on a back-end payments routing and data transformation*/}
+                    {/*    application that processes hundreds of transactions per second, totaling ~$4T USD globally per day.*/}
+                    {/*</p>*/}
+                    <div className="flex flex-row">
                         <TabButton selectTab={() => handleTabChange("skills")} active={tab === "skills" }>{" "}Skills{" "}</TabButton>
                         <TabButton selectTab={() => handleTabChange("experience")} active={tab === "experience" }>{" "}Experience{" "}</TabButton>
                         <TabButton selectTab={() => handleTabChange("education")} active={tab === "education" }>{" "}Education{" "}</TabButton>

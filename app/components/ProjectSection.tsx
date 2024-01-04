@@ -1,7 +1,8 @@
 "use client";
-import React, {useState} from 'react';
+import React, {useState,useRef} from 'react';
 import ProjectCard from "@/app/components/ProjectCard";
 import ProjectTag from "@/app/components/ProjectTag";
+import {motion, useInView} from "framer-motion";
 
 const projectData = [
     {
@@ -26,6 +27,8 @@ const projectData = [
 
 const ProjectsSection = () => {
     const [tag, setTag] = useState("All");
+    const ref = useRef(null);
+    const isInView = useInView(ref,{once: true});
 
     const filteredProjects = projectData.filter((project) =>
         project.tag.includes(tag)
@@ -35,8 +38,13 @@ const ProjectsSection = () => {
         setTag(newTag);
     };
 
+    const cardVariants = {
+        initial: { y: 50, opacity: 0 },
+        animate: { y: 0, opacity: 1 }
+    }
+
     return (
-        <>
+        <section ref={ref}>
             <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
                 My Projects
             </h2>
@@ -57,17 +65,18 @@ const ProjectsSection = () => {
                     isSelected={tag === "Cloud"}
                 />
             </div>
-            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+            <ul className="grid md:grid-cols-3 gap-8 md:gap-12">
                 {filteredProjects.map((project) => (
-                    <ProjectCard
-                        key={project.id}
-                        title={project.title}
-                        description={project.description}
-                        imgUrl={project.image}
-                     liveProjectUrl={project.liveProjectUrl} sourceUrl={project.sourceUrl}/>
+                    <motion.li variants={cardVariants} initial="initial" animate={isInView? "animate" : "initial"} key={project.id}>
+                        <ProjectCard
+                            title={project.title}
+                            description={project.description}
+                            imgUrl={project.image}
+                         liveProjectUrl={project.liveProjectUrl} sourceUrl={project.sourceUrl}/>
+                    </motion.li>
                 ))}
-            </div>
-        </>
+            </ul>
+        </section>
     );
 };
 
